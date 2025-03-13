@@ -1,6 +1,6 @@
 # Block randomized queue designer for LCMS experiments
 
-[![DOI](https://zenodo.org/badge/DOI/your_doi_here.svg)](https://doi.org/10.5281/zenodo.15019270)
+[![DOI](https://zenodo.org/badge/DOI/doi.org/10.5281/zenodo.15019270.svg)](https://doi.org/10.5281/zenodo.15019270)
 
 ## Overview
 
@@ -19,10 +19,6 @@ Alternatively you can clone the repository and install it locally
 git clone https://github.com/nar-g/blockrand_q_designer.git
 cd blockrand_q_designer
 pip install .
-```
-
-```bash
-conda install -c conda-forge blockrand_q_designer
 ```
 
 ## Usage example
