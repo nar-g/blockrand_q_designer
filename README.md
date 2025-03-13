@@ -60,7 +60,7 @@ design.save_to_csv("queue_design.csv")
 Contributions are welcome! 
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
 
 ## Contact
 For questions, suggestions, or feedback, please contact guido.narduzzi@bc.biol.ethz.ch
