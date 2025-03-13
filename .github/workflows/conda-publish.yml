@@ -25,6 +25,7 @@ jobs:
           conda init bash
           source ~/.bashrc
           conda activate blockrand_q_designer
+          conda config --set solver classic
 
       - name: Build the package
         run: |
