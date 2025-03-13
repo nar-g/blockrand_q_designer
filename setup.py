@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name="lcms_queue",
+    name="blockrand_q_designer",
     version="0.1.0",
     py_modules=["blockrand_q_designer"],
     author="Guido Narduzzi",
