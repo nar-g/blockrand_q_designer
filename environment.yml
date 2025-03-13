@@ -1,0 +1,12 @@
+name: blockrand_q_designer
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - numpy
+  - conda-build
+  - anaconda-client
+  - pip
+  - pip:
+      - setuptools
+      - build
