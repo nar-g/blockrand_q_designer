@@ -1,6 +1,6 @@
 # Block randomized queue designer for LCMS experiments
 
-[![DOI](https://zenodo.org/badge/DOI/your_doi_here1.svg)](https://doi.org/10.5281/zenodo.15019270)
+[![DOI](https://zenodo.org/badge/DOI/doi.org/10.5281/zenodo.15019270.svg)](https://doi.org/10.5281/zenodo.15019270)
 
 ## Overview
 
