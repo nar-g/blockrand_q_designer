@@ -1,0 +1,32 @@
+# Example meta.yaml
+package:
+  name: blockrand_q_designer
+  version: "0.1.0"
+
+source:
+  path: ..
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - numpy
+
+test:
+  imports:
+    - myproject
+
+about:
+  home: "https://github.com/nar-g/blockrand_q_designer"
+  license: GNU General Public License v3.0
+  summary: "A tool to generate flexible block-randomized LCMS queues."
+
+extra:
+  recipe-maintainers:
+    - nar-g
