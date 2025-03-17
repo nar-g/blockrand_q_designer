@@ -17,7 +17,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
-          python-version: 3.8
+          python-version: 3.9
           activate-environment: base
 
       - name: Install Dependencies
@@ -31,9 +31,9 @@ jobs:
 
       - name: Upload Package to Anaconda Cloud
         env:
-          ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+          ANACONDA_TOKEN: ${{ secrets.ANACONDA_API_TOKEN }}
         run: |
           # Find the built package (you may need to adjust the path if your package has a different name)
           PACKAGE_PATH=$(find build_output/ -name "*.tar.bz2")
           echo "Uploading package: $PACKAGE_PATH"
-          anaconda -t $ANACONDA_TOKEN upload --user your_anaconda_username $PACKAGE_PATH
+          anaconda -t $ANACONDA_API_TOKEN upload --user nar-g $PACKAGE_PATH
