@@ -1,18 +1,39 @@
-name: publish_conda
+name: Publish Conda Package
 
 on:
   release:
     types: [published]
   workflow_dispatch:
-    
+
 jobs:
-  publish:
+  build_and_publish:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: publish-to-conda
-      uses: fcakyon/conda-publish-action@v1.3
-      with:
-        subdir: 'conda'
-        anacondatoken: ${{ secrets.ANACONDA_API_TOKEN }}
-        platforms: 'win osx linux'
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          python-version: 3.8
+          activate-environment: base
+
+      - name: Install Dependencies
+        run: |
+          conda install -c conda-forge conda-build anaconda-client
+
+      - name: Build Conda Package
+        run: |
+          # Replace "recipe" with the folder containing your meta.yaml
+          conda build recipe --output-folder build_output
+
+      - name: Upload Package to Anaconda Cloud
+        env:
+          ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
+        run: |
+          # Find the built package (you may need to adjust the path if your package has a different name)
+          PACKAGE_PATH=$(find build_output/ -name "*.tar.bz2")
+          echo "Uploading package: $PACKAGE_PATH"
+          anaconda -t $ANACONDA_TOKEN upload --user your_anaconda_username $PACKAGE_PATH
