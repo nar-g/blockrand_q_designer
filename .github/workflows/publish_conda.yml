@@ -22,7 +22,8 @@ jobs:
       - name: Create and activate environment
         run: |
           conda create --name buildenv python=3.9 -y
-          echo "conda activate buildenv" >> $GITHUB_ENV
+          conda init bash
+          bash -c "source ~/.bashrc && conda activate buildenv"  # Fix: Use 'conda activate' properly
 
       - name: Install Dependencies
         run: |
