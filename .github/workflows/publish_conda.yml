@@ -18,11 +18,15 @@ jobs:
         with:
           auto-update-conda: true
           python-version: 3.9
-          activate-environment: base
+
+      - name: Create and activate environment
+        run: |
+          conda create --name buildenv python=3.9 -y
+          echo "conda activate buildenv" >> $GITHUB_ENV
 
       - name: Install Dependencies
         run: |
-          conda install -c conda-forge conda-build anaconda-client
+          conda install -n buildenv -c conda-forge conda-build anaconda-client
 
       - name: Build Conda Package
         run: |
